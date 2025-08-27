@@ -140,7 +140,7 @@ public partial class GitProcessHelper : IDisposable
     /// <param name="repositoryUrl">仓库URL</param>
     /// <param name="directory">目标目录</param>
     /// <returns>命令执行结果</returns>
-    public GitResult Clone(string repositoryUrl, string? directory = null)
+    public GitResult Clone(string repositoryUrl, string? directory = "")
     {
         var args = $"clone \"{repositoryUrl}\"";
         if (!string.IsNullOrEmpty(directory))
@@ -183,7 +183,6 @@ public partial class GitProcessHelper : IDisposable
     /// <summary>
     /// 执行git add命令
     /// </summary>
-    /// <param name="path">要添加的文件路径，默认为添加所有</param>
     /// <param name="args"></param>
     /// <returns>命令执行结果</returns>
     public GitResult Add(params string[] args)

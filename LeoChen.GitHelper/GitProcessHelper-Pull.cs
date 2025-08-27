@@ -96,9 +96,9 @@ public partial  class GitProcessHelper
     /// <para>4. 示例：git pull --no-recurse-submodules</para>
     /// <para>说明：不处理子模块，不获取其新提交也不更新工作树。</para>
     /// </remarks>
-    public GitResult PullRecurseSubmodules(string recurseOption = null, params string[] args)
+    public GitResult PullRecurseSubmodules(string recurseOption = "", params string[] args)
     {
-        string option = recurseOption == null ? "--recurse-submodules" : $"--recurse-submodules={recurseOption}";
+        string option = recurseOption == "" ? "--recurse-submodules" : $"--recurse-submodules={recurseOption}";
         return Pull(option, string.Join(" ", args));
     }
 

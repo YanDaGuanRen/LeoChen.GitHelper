@@ -11,14 +11,15 @@ public static class Utils
     /// <returns></returns>
     public static String Join(this IEnumerable value, String separator = ",")
     {
+        if (value is null) return "";
+
         var sb = new StringBuilder();
-        if (value != null)
-        {
+
             foreach (var item in value)
             {
                 sb.Append(item + "");
             }
-        }
+        
         return sb.ToString();
     }
 }

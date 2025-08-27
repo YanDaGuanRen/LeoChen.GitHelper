@@ -275,7 +275,7 @@ public partial class GitProcessHelper
     /// <para>指定合并时采用的策略（如 recursive、octopus 等）进行合并操作。</para>
     /// </summary>
     /// <param name="strategy">合并策略，如 "recursive"、"octopus" 等</param>
-    /// <param name="commit">要合并的提交哈希或分支名</param>
+    /// <param name="commits">要合并的提交哈希或分支名</param>
     /// <returns>执行 git merge -s 命令的结果 <seealso cref="GitResult"/></returns>
     /// <remarks>
     /// <para>使用示例及说明：</para>
@@ -324,7 +324,7 @@ public partial class GitProcessHelper
     /// <para>2. 示例：git merge --gpg-sign=XYZ789 topic</para>
     /// <para>说明：合并 topic 分支，使用密钥 ID XYZ789 对合并提交签名。</para>
     /// </remarks>
-    public GitResult MergeWithGpgSign(string commit, string keyId = null)
+    public GitResult MergeWithGpgSign(string commit, string keyId = "")
     {
         if (string.IsNullOrEmpty(keyId))
         {

@@ -83,7 +83,7 @@ public partial class GitProcessHelper
     /// <para>3. 示例：git push --all https://github.com/example/repo.git</para>
     /// <para>说明：推送所有本地分支到指定 URL 的远程仓库。</para>
     /// </remarks>
-    public GitResult PushAll(string repository = null)
+    public GitResult PushAll(string repository = "")
     {
         var args = new List<string> { "--all" };
         if (!string.IsNullOrEmpty(repository))
@@ -104,7 +104,7 @@ public partial class GitProcessHelper
     /// <para>2. 示例：git push --branches origin</para>
     /// <para>说明：推送所有本地分支到名为 origin 的远程仓库。</para>
     /// </remarks>
-    public GitResult PushBranches(string repository = null)
+    public GitResult PushBranches(string repository = "")
     {
         var args = new List<string> { "--branches" };
         if (!string.IsNullOrEmpty(repository))
@@ -125,7 +125,7 @@ public partial class GitProcessHelper
     /// <para>2. 示例：git push --mirror backup-remote</para>
     /// <para>说明：将本地所有引用镜像推送到名为 backup-remote 的远程仓库，用于备份。</para>
     /// </remarks>
-    public GitResult PushMirror(string repository = null)
+    public GitResult PushMirror(string repository = "")
     {
         var args = new List<string> { "--mirror" };
         if (!string.IsNullOrEmpty(repository))
@@ -146,7 +146,7 @@ public partial class GitProcessHelper
     /// <para>2. 示例：git push --tags origin</para>
     /// <para>说明：推送所有本地标签到名为 origin 的远程仓库。</para>
     /// </remarks>
-    public GitResult PushTags(string repository = null)
+    public GitResult PushTags(string repository = "")
     {
         var args = new List<string> { "--tags" };
         if (!string.IsNullOrEmpty(repository))
@@ -168,7 +168,7 @@ public partial class GitProcessHelper
     /// <para>2. 示例：git push --follow-tags origin master</para>
     /// <para>说明：推送本地 master 分支及可访问的标签到 origin 远程仓库。</para>
     /// </remarks>
-    public GitResult PushFollowTags(string repository = null, string refspec = null)
+    public GitResult PushFollowTags(string repository = "", string refspec = "")
     {
         var args = new List<string> { "--follow-tags" };
         if (!string.IsNullOrEmpty(repository))
@@ -442,7 +442,7 @@ public partial class GitProcessHelper
     /// <para>2. 示例：git push --force-with-lease=master:abc123 origin</para>
     /// <para>说明：仅当 origin/master 指向 commit abc123 时，强制推送本地 master 分支到 origin。</para>
     /// </remarks>
-    public GitResult PushForceWithLease(string refname = null, string expect = null, params string[] args)
+    public GitResult PushForceWithLease(string refname = "", string expect = "", params string[] args)
     {
         string leaseArg = "--force-with-lease";
         if (!string.IsNullOrEmpty(refname))
