@@ -1,0 +1,34 @@
+name: test
+
+on:
+  push:
+    branches: [ 'master' ]
+    paths:
+        - 'Core/**'
+  pull_request:
+    branches: [ 'master' ]
+    paths:
+        - 'Core/**'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup dotNET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          6.x
+          7.x
+          8.x
+          9.x
+    - name: Build
+      run: |
+        dotnet build -c Release
+    - name: Test
+      run: |
+        dotnet test -f net8.0
+        dotnet test -f net9.0

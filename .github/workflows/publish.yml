@@ -1,0 +1,29 @@
+name: publish
+
+on:
+  push:
+    tags: [ v* ]
+  workflow_dispatch:
+
+jobs:
+  build-publish:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup dotNET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          6.x
+          7.x
+          8.x
+          9.x
+    - name: Get Version
+      run: echo "VERSION=$(date '+%Y.%m%d')" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+    - name: Build
+      run: |
+        dotnet pack --version-suffix ${{ env.VERSION }} -c Release -o out LeoChen.GitHelper.csproj
+    - name: Publish
+      run: |
+        dotnet nuget push .\out\*.nupkg --skip-duplicate --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.nugetKey }}
