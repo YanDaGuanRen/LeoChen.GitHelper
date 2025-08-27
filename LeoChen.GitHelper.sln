@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoChen.GitHelper", "LeoChen.GitHelper\LeoChen.GitHelper.csproj", "{A12C75AD-C3D0-4BA4-9CB2-13A919271CFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A12C75AD-C3D0-4BA4-9CB2-13A919271CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A12C75AD-C3D0-4BA4-9CB2-13A919271CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A12C75AD-C3D0-4BA4-9CB2-13A919271CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A12C75AD-C3D0-4BA4-9CB2-13A919271CFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
