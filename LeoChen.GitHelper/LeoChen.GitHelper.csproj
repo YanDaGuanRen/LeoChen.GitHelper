@@ -28,7 +28,7 @@
     <PropertyGroup>
         <PackageId>$(AssemblyName)</PackageId>
         <Authors>$(Company)</Authors>
-        <PackageIcon>leaf.png</PackageIcon>
+        <PackageIcon>logo.png</PackageIcon>
         <RepositoryUrl>https://github.com/YanDaGuanRen/LeoChen.GitHelper</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>良辰科技;LeoChen;$(AssemblyName)</PackageTags>
